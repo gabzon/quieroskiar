@@ -1,0 +1,19 @@
+/*
+Theme Name: Want2Ski
+Theme URI: http://www.want2ski.com
+Description: Want2ski, a basic child theme for PageLines DMS
+Version: 1.0.0
+Author: Gabriel Zambrano
+Author URI: http://www.zambrano.ch
+
+Template: dms
+
+*/
+
+/**
+ * All CSS & LESS CSS should be added to the style.less file.
+ * However, you can use this file if you only wish to use CSS.
+ * Lines 13-17 can be removed.
+ */
+
+@import url('../dms/style.css');
