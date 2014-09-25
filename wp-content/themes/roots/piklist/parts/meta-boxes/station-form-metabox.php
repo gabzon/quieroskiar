@@ -1,23 +1,23 @@
 <?php
 /*
-Title: Include a new resort
-Post Type: resort
+Title: Include a new station
+Post Type: station
 */
 piklist('field',array(
 	'type' => 'text'
-	,'field' => 'resort_name'
-	,'label' => 'Resort name'
+	,'field' => 'station_name'
+	,'label' => 'Station name'
 	,'required' => true
 	,'columns' => 12
 	,'attributes' => array(
-		'placeholder' => 'Enter the resort name'
+		'placeholder' => 'Enter the station name'
 		)
 	)
 );
 piklist('field', array(
     'type' => 'group'
     ,'label' => 'Tourism Office'
-    ,'description' => 'Select first the contact type (Want2Ski or Tourist contact)'
+    ,'description' => 'Select y the contact type (Want2Ski or Tourist contact)'
     ,'fields' => array(
 		array(
 			'type' => 'radio'
@@ -63,6 +63,14 @@ piklist('field', array(
         ,'attributes' => array(
           	'placeholder' => 'mail@want2ski.ch'
         	)
+		,'validate' => array(
+			array(
+				'type' => 'email'
+			)
+			,array(
+				'type' => 'email_domain'
+			)
+			)
       	)
 	)
 ));
@@ -76,7 +84,7 @@ piklist('field', array(
 			,'field' => 'altitude_range'
 			,'label' => 'Altitude Range'
 			,'description' => 'Village - Top of ski area'
-			,'required' => true
+			,'required' => false
 			,'columns' => 12
 			,'attributes' => array(
 			  'placeholder' => 'Insert the altitude range'
@@ -183,10 +191,10 @@ piklist('field', array(
 			'type' => 'radio'
 			,'field' => 'discoteque'
 			,'label' => 'Discoteque / Club'
-			,'value' => 'second'
+			,'value' => 'y'
 			,'choices' => array(
-			  'first' => 'Yes'
-			  ,'second' => 'No'
+			  'y' => 'Yes'
+			  ,'n' => 'No'
 			)
 			,'on_post_status' => array(
 			  'value' => 'lock'
@@ -195,10 +203,10 @@ piklist('field', array(
 			'type' => 'radio'
 			,'field' => 'bars'
 			,'label' => 'Bars'
-			,'value' => 'second'
+			,'value' => 'y'
 			,'choices' => array(
-			  'first' => 'Yes'
-			  ,'second' => 'No'
+			  'y' => 'Yes'
+			  ,'n' => 'No'
 			)
 			,'on_post_status' => array(
 			  'value' => 'lock'
@@ -207,10 +215,10 @@ piklist('field', array(
 			'type' => 'radio'
 			,'field' => 'apres_ski'
 			,'label' => 'Apres-Ski'
-			,'value' => 'second'
+			,'value' => 'y'
 			,'choices' => array(
-			  'first' => 'Yes'
-			  ,'second' => 'No'
+			  'y' => 'Yes'
+			  ,'n' => 'No'
 			)
 			,'on_post_status' => array(
 			  'value' => 'lock'
@@ -220,10 +228,10 @@ piklist('field', array(
 			'type' => 'radio'
 			,'field' => 'festival'
 			,'label' => 'Festival'
-			,'value' => 'second'
+			,'value' => 'y'
 			,'choices' => array(
-			  'first' => 'Yes'
-			  ,'second' => 'No'
+			  'y' => 'Yes'
+			  ,'n' => 'No'
 			)
 			,'on_post_status' => array(
 			  'value' => 'lock'
@@ -233,10 +241,10 @@ piklist('field', array(
 			'type' => 'radio'
 			,'field' => 'cinema'
 			,'label' => 'Cinema'
-			,'value' => 'second'
+			,'value' => 'y'
 			,'choices' => array(
-			  'first' => 'Yes'
-			  ,'second' => 'No'
+			  'y' => 'Yes'
+			  ,'n' => 'No'
 			)
 			,'on_post_status' => array(
 			  'value' => 'lock'
@@ -289,5 +297,4 @@ piklist('field', array(
 		)
 		)
 	));
-
 ?>
