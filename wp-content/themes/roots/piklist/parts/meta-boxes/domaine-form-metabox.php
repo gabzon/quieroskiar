@@ -3,13 +3,12 @@
 Title: New Domaine information
 Post Type: domaine
 */
-piklist('field', array(
+/*piklist('field', array(
     'type' => 'editor'
     ,'field' => 'description_content'
     ,'scope' => 'post'
     ,'label' => 'Domaine Description'
     ,'description' => 'Enter a description of the domaine'
-    ,'value' => 'The description here...'
     ,'options' => array (
       'wpautop' => true
       ,'media_buttons' => true
@@ -25,12 +24,13 @@ piklist('field', array(
     ,'on_post_status' => array(
       'value' => 'lock'
     )
-  ));
-  
+  ));*/
+
   piklist('field',array(
 	'type' => 'text'
 	,'field' => 'domaine_website'
 	,'label' => 'Domaine Website'
+  ,'description' => 'Optional'
 	,'columns' => 12
 	,'attributes' => array(
 		'placeholder' => 'Enter the website'
