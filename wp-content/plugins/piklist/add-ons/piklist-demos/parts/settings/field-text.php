@@ -25,7 +25,7 @@ Order: 30
     ,'description' => "required => true"
     ,'attributes' => array(
       'class' => 'regular-text'
-      ,'placeholder' => 'Enter text or this page won\'t save!!!'
+      ,'placeholder' => 'Enter text or this page won\'t save.'
     )
     ,'required' => true
   ));
