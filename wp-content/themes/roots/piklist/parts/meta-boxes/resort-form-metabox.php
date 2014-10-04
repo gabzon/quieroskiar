@@ -176,12 +176,12 @@ piklist('field', array(
     )
     ,array(
         'type' => 'text'
-        ,'field' => 'fax_contact'
-        ,'label' => 'Fax'
+        ,'field' => 'email_contact'
+        ,'label' => 'Email'
         ,'required' => true
         ,'columns' => 4
         ,'attributes' => array(
-            'placeholder' => '+41 xx xxx xx xx'
+            'placeholder' => 'info@want2ski.com'
         )
     )
   )
@@ -212,9 +212,12 @@ piklist('field', array(
         'class' => 'text'
       )
       ,'choices' => array(
-        '1' => 'Facebook'
-        ,'2' => 'Twitter'
-        ,'3' => 'Instagram'
+        '1' => 'Facebook',
+        '2' => 'Twitter',
+        '3' => 'Instagram',
+        '4' => 'YouTube',
+        '5' => 'Pinterest',
+        '6' => 'Vimeo'
       )
     )
   )
@@ -351,36 +354,64 @@ piklist('field', array(
     )
   )
 ));
-/*
-  Parking
-*/
+
+
 piklist('field', array(
-  'type' => 'radio'
-  ,'field' => 'parking'
-  ,'label' => 'Parking'
-  ,'value' => 'y'
-  ,'choices' => array(
-    'y' => 'Yes'
-    ,'n' => 'No'
-  )
-  ,'on_post_status' => array(
-    'value' => 'lock'
-  )
+'type' => 'checkbox'
+,'field' => 'field_name'
+,'value' => 'resort_options' // Sets default to Option 2
+,'label' => 'Options'
+,'description' => 'Select when true.'
+,'attributes' => array(
+  'class' => 'text'
+)
+,'choices' => array(
+    '1' => 'Parking',
+    '2' => 'Babysitter',
+    '3' => 'Discotheque/Club',
+    '4' => 'Bars/pubs',
+    '5' => 'Après-ski',
+    '6' => 'Festival',
+    '7' => 'Cinema',
+    '8' => 'Spa',
+    '9' => 'Family Discount',
+    '10' => 'Indoor Swimming Pool',
+    '11' => 'Freeride',
+    '12' => 'Snow park',
+    '13' => 'Ski school',
+    '14' => 'Bus service in resort',
+    '15' => 'Bus service to train station'
+)
 ));
+
+
 /*
   Altitude Range
 */
 piklist('field', array(
-    'type' => 'text'
-    ,'label' => 'Altitude Range (Top - Bottom)'
-    ,'description' => 'Village - Top of ski area'
-    ,'required' => false
-    ,'columns' => 12
-    ,'attributes' => array(
-      'placeholder' => 'Insert the altitude range (xxxx m. - xxxx m.)'
+    'type' => 'group',
+    'label' => 'Altitude',
+    'fields' => array(
+      array(
+          'type' => 'text',
+          'field' => 'altitude_top',
+          'label' => 'Altitude Top',
+          'columns' => 6
+      ),
+      array(
+          'type' => 'text',
+          'field' => 'altitude_bottom',
+          'label' => 'Altitude Bottom',
+          'columns' => 6
+      ),
     )
   )
 );
+
+
+
+
+
 /*
   Hotel Acomodation
 */
@@ -446,220 +477,98 @@ piklist('field', array(
     )
   )
 ));
-/*
-	##
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'General Information'
-		,'fields' => array(
-		array(
-			'type' => 'text'
-			,'field' => 'altitude_range'
-			,'label' => 'Altitude Range (Top - Bottom)'
-			,'description' => 'Village - Top of ski area'
-			,'required' => false
-			,'columns' => 12
-			,'attributes' => array(
-			  'placeholder' => 'Insert the altitude range (xxxx m. - xxxx m.)'
-			)
-		)
-		, array(
-			'type' => 'datepicker'
-			,'field' => 'ski_season'
-			,'label' => 'Ski Season opening date'
-			,'description' => '(Stimate)'
-			,'options' => array(
-				'dateFormat' => 'M d, yy'
-			)
-			,'attributes' => array(
-				'size' => 12
-			)
-			,'value' => date('M d, Y', time())
-			,'on_post_status' => array(
-				'value' => 'lock'
-			)
-		)
-		, array(
-			'type' => 'group'
-			,'field' => 'want2ski_contact_group'
-			,'label' => 'Price range for one day ski pass'
-			,'list' => false
-			,'description' => '(Full day - Cheapest)'
-			,'fields' => array(
-			  array(
-				'type' => 'text'
-				,'field' => 'adult_price'
-				,'label' => 'For Adult'
-				,'columns' => 6
-				)
-			  ,array(
-				'type' => 'text'
-				,'field' => 'children_price'
-				,'label' => 'For Children'
-				,'columns' => 6
-				)
-			)
-		)
-		, array(
-			'type' => 'radio'
-			,'field' => 'family_discount'
-			,'label' => 'Family discounts'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		))
-	));
-	###
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Hotel / Accomodation'
-		,'fields' => array(
-			array(
-				'type' => 'radio'
-				,'field' => 'place'
-				,'label' => '5* / Place'
-				,'value' => 'y'
-				,'choices' => array(
-				  'y' => 'Yes'
-				  ,'n' => 'No'
-				)
-				,'on_post_status' => array(
-				  'value' => 'lock'
-				)
-			 )
-			,array(
-				'type' => 'radio'
-				,'field' => 'yhostel'
-				,'label' => 'Youth hostel/ 2*'
-				,'value' => 'y'
-				,'choices' => array(
-				  'y' => 'Yes'
-				  ,'n' => 'No'
-				)
-				,'on_post_status' => array(
-				  'value' => 'lock'
-				)
-			)
-		)
-	));
-	####
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Entertainment'
-		,'fields' => array(
-			array(
-			'type' => 'radio'
-			,'field' => 'discoteque'
-			,'label' => 'Discoteque / Club'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'bars'
-			,'label' => 'Bars'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'apres_ski'
-			,'label' => 'Apres-Ski'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
 
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'festival'
-			,'label' => 'Festival'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
+piklist('field', array(
+    'type' => 'group',
+    'label' => 'Slopes',
+    'fields' => array(
+      array(
+          'type' => 'text',
+          'field' => 'black_slopes',
+          'label' => 'Black Slope',
+          'columns' => 3
+      ),
+      array(
+          'type' => 'text',
+          'field' => 'red_slopes',
+          'label' => 'Red Slope',
+          'columns' => 3
+      ),
+      array(
+          'type' => 'text',
+          'field' => 'blue_slopes',
+          'label' => 'Blue Slope',
+          'columns' => 3
+      ),
+      array(
+        'type' => 'text',
+        'field' => 'Cross_country_skiing',
+        'label' => 'Cross-country',
+        'columns' => 3
+      )
+    )
+  )
+);
 
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'cinema'
-			,'label' => 'Cinema'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		)
-	));
 
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Services'
-		,'fields' => array(
-		array(
-			'type' => 'radio'
-			,'field' => 'babysitter'
-			,'label' => 'Babysitter'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		 )
-		, array(
-			'type' => 'radio'
-			,'field' => 'spa'
-			,'label' => 'Spa'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		)
-		,array(
-			'type' => 'radio'
-			,'field' => 'pool'
-			,'label' => 'Swimming pool'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		)
-		)
-	));*/
+piklist('field', array(
+    'type' => 'group',
+    'label' => 'Price',
+    'fields' => array(
+      array(
+          'type' => 'text',
+          'field' => 'price_adult',
+          'label' => 'Price adult',
+          'columns' => 3
+      ),
+      array(
+          'type' => 'text',
+          'field' => 'Price_children',
+          'label' => 'Price children',
+          'columns' => 3
+      ),
+      array(
+          'type' => 'text',
+          'field' => 'Price_special',
+          'label' => 'Price others',
+          'columns' => 3
+      ),
+      array(
+          'type' => 'select',
+          'field' => 'price_currency',
+          'label' => 'Currency',
+          'columns' => 3,
+          'choices' => array(
+            '0' => 'Swiss Francs (CHF)',
+            '1' => 'Euros (EUR)'
+          )
+      )
+    )
+  )
+);
+
+piklist('field', array(
+ 'type' => 'text',
+ 'field' => 'ski_area_map',
+ 'label' => 'Ski area map',
+ 'columns' => 12
+ )
+);
+
+piklist('field', array(
+ 'type' => 'text',
+ 'field' => 'ski_area_status',
+ 'label' => 'Ski area status',
+ 'columns' => 12
+ )
+);
+
+piklist('field', array(
+ 'type' => 'text',
+ 'field' => 'webcam',
+ 'label' => 'webcam',
+ 'columns' => 12
+ )
+);
+
 ?>
