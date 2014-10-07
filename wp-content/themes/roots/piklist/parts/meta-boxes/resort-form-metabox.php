@@ -36,38 +36,14 @@ piklist('field', array(
           'type' => 'text'
           ,'field' => 'npa'
           ,'label' => 'NPA'
-          ,'required' => true
           ,'columns' => 2
-      )
-      ,array(
-          'type' => 'text'
-          ,'field' => 'location'
-          ,'label' => 'Location'
-          ,'required' => true
-          ,'columns' => 5
-      )
-      ,array(
-        'type' => 'select'
-        ,'scope' => 'taxonomy'
-        ,'field' => 'region'
-        ,'label' => 'Region'
-        ,'columns' => 5
-        ,'choices' => piklist(
-          get_terms('Regions', array(
-            'hide_empty' => false
-          ))
-          ,array(
-            'term_id'
-            ,'name'
-          )
-        )
       )
       ,array(
           'type' => 'text'
           ,'field' => 'phone'
           ,'label' => 'Phone Number'
           ,'required' => true
-          ,'columns' => 6
+          ,'columns' => 5
           ,'attributes' => array(
               'placeholder' => '+41 xx xxx xx xx'
           )
@@ -76,8 +52,7 @@ piklist('field', array(
           'type' => 'text'
           ,'field' => 'fax'
           ,'label' => 'Fax'
-          ,'required' => true
-          ,'columns' => 6
+          ,'columns' => 5
           ,'attributes' => array(
               'placeholder' => '+41 xx xxx xx xx'
             )
@@ -103,7 +78,6 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'website'
         ,'label' => 'Website'
-        ,'required' => true
         ,'columns' => 6
         ,'attributes' => array(
             'placeholder' => 'Example: www.wan2ski.ch'
@@ -144,14 +118,14 @@ piklist('field', array(
       'type' => 'text'
       ,'field' => 'contact'
       ,'label' => 'Contact'
-      ,'required' => false
+      ,'required' => true
       ,'columns' => 6
     )
     ,array(
       'type' => 'text'
       ,'field' => 'job_title'
       ,'label' => 'Job Title'
-      ,'required' => false
+      ,'required' => true
       ,'columns' => 6
     )
     ,array(
@@ -168,7 +142,6 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'mobile_contact'
         ,'label' => 'Mobile'
-        ,'required' => true
         ,'columns' => 4
         ,'attributes' => array(
             'placeholder' => '+41 xx xxx xx xx'
@@ -178,7 +151,6 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'fax_contact'
         ,'label' => 'Fax'
-        ,'required' => true
         ,'columns' => 4
         ,'attributes' => array(
             'placeholder' => '+41 xx xxx xx xx'
@@ -446,220 +418,4 @@ piklist('field', array(
     )
   )
 ));
-/*
-	##
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'General Information'
-		,'fields' => array(
-		array(
-			'type' => 'text'
-			,'field' => 'altitude_range'
-			,'label' => 'Altitude Range (Top - Bottom)'
-			,'description' => 'Village - Top of ski area'
-			,'required' => false
-			,'columns' => 12
-			,'attributes' => array(
-			  'placeholder' => 'Insert the altitude range (xxxx m. - xxxx m.)'
-			)
-		)
-		, array(
-			'type' => 'datepicker'
-			,'field' => 'ski_season'
-			,'label' => 'Ski Season opening date'
-			,'description' => '(Stimate)'
-			,'options' => array(
-				'dateFormat' => 'M d, yy'
-			)
-			,'attributes' => array(
-				'size' => 12
-			)
-			,'value' => date('M d, Y', time())
-			,'on_post_status' => array(
-				'value' => 'lock'
-			)
-		)
-		, array(
-			'type' => 'group'
-			,'field' => 'want2ski_contact_group'
-			,'label' => 'Price range for one day ski pass'
-			,'list' => false
-			,'description' => '(Full day - Cheapest)'
-			,'fields' => array(
-			  array(
-				'type' => 'text'
-				,'field' => 'adult_price'
-				,'label' => 'For Adult'
-				,'columns' => 6
-				)
-			  ,array(
-				'type' => 'text'
-				,'field' => 'children_price'
-				,'label' => 'For Children'
-				,'columns' => 6
-				)
-			)
-		)
-		, array(
-			'type' => 'radio'
-			,'field' => 'family_discount'
-			,'label' => 'Family discounts'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		))
-	));
-	###
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Hotel / Accomodation'
-		,'fields' => array(
-			array(
-				'type' => 'radio'
-				,'field' => 'place'
-				,'label' => '5* / Place'
-				,'value' => 'y'
-				,'choices' => array(
-				  'y' => 'Yes'
-				  ,'n' => 'No'
-				)
-				,'on_post_status' => array(
-				  'value' => 'lock'
-				)
-			 )
-			,array(
-				'type' => 'radio'
-				,'field' => 'yhostel'
-				,'label' => 'Youth hostel/ 2*'
-				,'value' => 'y'
-				,'choices' => array(
-				  'y' => 'Yes'
-				  ,'n' => 'No'
-				)
-				,'on_post_status' => array(
-				  'value' => 'lock'
-				)
-			)
-		)
-	));
-	####
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Entertainment'
-		,'fields' => array(
-			array(
-			'type' => 'radio'
-			,'field' => 'discoteque'
-			,'label' => 'Discoteque / Club'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'bars'
-			,'label' => 'Bars'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'apres_ski'
-			,'label' => 'Apres-Ski'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'festival'
-			,'label' => 'Festival'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-
-		  ,array(
-			'type' => 'radio'
-			,'field' => 'cinema'
-			,'label' => 'Cinema'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			))
-		)
-	));
-
-	piklist('field', array(
-		'type' => 'group'
-		,'label' => 'Services'
-		,'fields' => array(
-		array(
-			'type' => 'radio'
-			,'field' => 'babysitter'
-			,'label' => 'Babysitter'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		 )
-		, array(
-			'type' => 'radio'
-			,'field' => 'spa'
-			,'label' => 'Spa'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		)
-		,array(
-			'type' => 'radio'
-			,'field' => 'pool'
-			,'label' => 'Swimming pool'
-			,'value' => 'y'
-			,'choices' => array(
-			  'y' => 'Yes'
-			  ,'n' => 'No'
-			)
-			,'on_post_status' => array(
-			  'value' => 'lock'
-			)
-		)
-		)
-	));*/
 ?>

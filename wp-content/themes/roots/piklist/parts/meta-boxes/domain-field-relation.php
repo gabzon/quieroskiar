@@ -1,14 +1,14 @@
 <?php
 /*
 Title: My Domaine
-Post Type: station
+Post Type: resort
 Order: 10
 Priority: default
 Context: side
 Collapse: false
 */
 
-  // Let's show the Meta Box 
+  // Let's show the Meta Box
   piklist('field', array(
     'type' => 'post-relate'
     ,'scope' => 'domaine'
@@ -16,7 +16,7 @@ Collapse: false
   ));
 ?>
 
-<?php 
+<?php
 
   // Displaying your related posts is as simple as using WP_Query with one extra parameter, post_belongs
   $related = get_posts(array(
@@ -27,7 +27,7 @@ Collapse: false
     ,'suppress_filters' => false
   ));
 
-  if ($related): 
+  if ($related):
 ?>
 
     <h4><?php _e('Related Posts', 'piklist-demo');?></h4>
@@ -44,6 +44,6 @@ Collapse: false
 
     <hr />
 
-<?php 
+<?php
   endif;
 ?>
