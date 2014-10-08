@@ -46,7 +46,7 @@ piklist('field', array(
           ,'required' => true
           ,'columns' => 5
       )
-      ,array(
+    /*  ,array(
         'type' => 'select'
         ,'scope' => 'taxonomy'
         ,'field' => 'region'
@@ -61,7 +61,7 @@ piklist('field', array(
             ,'name'
           )
         )
-      )
+      )*/
       ,array(
           'type' => 'text'
           ,'field' => 'phone'
@@ -137,6 +137,7 @@ piklist('field', array(
 */
 piklist('field', array(
   'type' => 'group'
+  ,'field' => 'contact_info'
   ,'label' => 'Contact Information'
   ,'add_more' => true
   ,'fields' => array(
@@ -192,6 +193,7 @@ piklist('field', array(
 */
 piklist('field', array(
   'type' => 'group'
+  ,'field' => 'social_media_info'
   ,'label' => 'Social Media Information'
   ,'add_more' => true
   ,'fields' => array(
@@ -223,9 +225,20 @@ piklist('field', array(
   )
 ));
 /*
-
+  Photo Gallery
 */
 piklist('field', array(
+  'type' => 'file'
+  ,'field' => 'upload_photos'
+  ,'label' => 'Photo Gallery'
+  ,'scope' => 'post_meta'
+  ,'label' => __('Add File(s)','resort')
+  ,'options' => array(
+    'modal_title' => __('Add File(s)','resort')
+    ,'button' => __('Add Photos Here','resort')
+  )
+));
+/*piklist('field', array(
   'type' => 'group'
   ,'label' => 'Photo Gallery'
   ,'fields' => array(
@@ -233,16 +246,16 @@ piklist('field', array(
       'type' => 'file'
       ,'field' => 'upload_photos'
       ,'scope' => 'post_meta'
-      ,'label' => __('Add File(s)','piklist')
+      ,'label' => __('Add File(s)','resort')
       ,'options' => array(
-        'modal_title' => __('Add File(s)','piklist')
-        ,'button' => __('Add Photos Here','piklist')
+        'modal_title' => __('Add File(s)','resort')
+        ,'button' => __('Add Photos Here','resort')
       )
     )
   )
-));
+));*/
 /*
-
+  Opening/Close Hours
 */
 piklist('field', array(
   'type' => 'group'
@@ -291,7 +304,9 @@ piklist('field', array(
     )
   )
 ));
-
+/*
+* Seasonal dates
+*/
 piklist('field', array(
   'type' => 'group'
   ,'label' => 'Seasonal dates'
@@ -354,12 +369,14 @@ piklist('field', array(
     )
   )
 ));
+/*
+  Options
+*/
 
 
 piklist('field', array(
 'type' => 'checkbox'
-,'field' => 'field_name'
-,'value' => 'resort_options' // Sets default to Option 2
+,'field' => 'resort_options'
 ,'label' => 'Options'
 ,'description' => 'Select when true.'
 ,'attributes' => array(
@@ -382,6 +399,10 @@ piklist('field', array(
     '14' => 'Bus service in resort',
     '15' => 'Bus service to train station'
 )
+,'list' => true
+/*,'on_post_status' => array(
+  'value' => 'lock'
+)*/
 ));
 
 

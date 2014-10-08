@@ -22,6 +22,7 @@
           <?php include roots_sidebar_path(); ?>
         </aside><!-- /.sidebar -->
       <?php endif; ?>
+      adad
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 
