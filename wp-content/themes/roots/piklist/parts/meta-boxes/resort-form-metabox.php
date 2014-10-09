@@ -3,17 +3,7 @@
 Title: Include a new resort
 Post Type: resort
 */
-/*piklist('field',array(
-	'type' => 'text'
-	,'field' => 'station_name'
-	,'label' => 'Station name'
-	,'required' => true
-	,'columns' => 12
-	,'attributes' => array(
-		'placeholder' => 'Enter the station name'
-		)
-	)
-);*/
+
 /*
   Basic Information
 */

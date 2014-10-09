@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     <?php echo roots_title();
-    echo"aaasad";
+    //echo"aaasad";
     ?>
 
   </h1>
