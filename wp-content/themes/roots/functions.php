@@ -37,4 +37,3 @@ require_once("my_actions.php");
 require_once("my_custom_types.php");
 require_once("my_taxonomies.php");
 require_once("my_filters.php");
-?>

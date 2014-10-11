@@ -16,7 +16,7 @@ piklist('field', array(
           'type' => 'text'
           ,'field' => 'address'
           ,'label' => 'Address'
-          ,'required' => true
+          ,'required' => false
           ,'columns' => 12
           ,'attributes' => array(
               'placeholder' => 'Enter the addres here'
@@ -26,37 +26,21 @@ piklist('field', array(
           'type' => 'text'
           ,'field' => 'npa'
           ,'label' => 'NPA'
-          ,'required' => true
+          ,'required' => false
           ,'columns' => 2
       )
       ,array(
           'type' => 'text'
           ,'field' => 'location'
           ,'label' => 'Location'
-          ,'required' => true
+          ,'required' => false
           ,'columns' => 5
       )
-    /*  ,array(
-        'type' => 'select'
-        ,'scope' => 'taxonomy'
-        ,'field' => 'region'
-        ,'label' => 'Region'
-        ,'columns' => 5
-        ,'choices' => piklist(
-          get_terms('Regions', array(
-            'hide_empty' => false
-          ))
-          ,array(
-            'term_id'
-            ,'name'
-          )
-        )
-      )*/
       ,array(
           'type' => 'text'
           ,'field' => 'phone'
           ,'label' => 'Phone Number'
-          ,'required' => true
+          ,'required' => false
           ,'columns' => 6
           ,'attributes' => array(
               'placeholder' => '+41 xx xxx xx xx'
@@ -66,7 +50,7 @@ piklist('field', array(
           'type' => 'text'
           ,'field' => 'fax'
           ,'label' => 'Fax'
-          ,'required' => true
+          ,'required' => false
           ,'columns' => 6
           ,'attributes' => array(
               'placeholder' => '+41 xx xxx xx xx'
@@ -76,7 +60,7 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'email'
         ,'label' => 'Email Address'
-        ,'required' => true
+        ,'required' => false
         ,'columns' => 6
         ,'attributes' => array(
             'placeholder' => 'mail@want2ski.ch'
@@ -93,7 +77,7 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'website'
         ,'label' => 'Website'
-        ,'required' => true
+        ,'required' => false
         ,'columns' => 6
         ,'attributes' => array(
             'placeholder' => 'Example: www.wan2ski.ch'
@@ -102,26 +86,7 @@ piklist('field', array(
       )
 
   ));
-/*piklist('field', array(
-  'type' => 'group'
-  ,'label' => 'Contact Information'
-  ,'fields' => array(
-      array(
-      'type' => 'text'
-      ,'field' => 'location'
-      ,'label' => 'Location'
-      ,'required' => true
-      ,'columns' => 6
-      )
 
-      )
-));*/
-
-/*piklist('field', array(
-    'type' => 'post-relate'
-    ,'scope' => 'domaine'
-    ,'template' => 'field'
-  ));*/
 /*
   Contact Information
 */
@@ -149,7 +114,7 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'phone_contact'
         ,'label' => 'Phone'
-        ,'required' => true
+        ,'required' => false
         ,'columns' => 4
         ,'attributes' => array(
             'placeholder' => '+41 xx xxx xx xx'
@@ -159,7 +124,7 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'mobile_contact'
         ,'label' => 'Mobile'
-        ,'required' => true
+        ,'required' => false
         ,'columns' => 4
         ,'attributes' => array(
             'placeholder' => '+41 xx xxx xx xx'
@@ -169,7 +134,7 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'email_contact'
         ,'label' => 'Email'
-        ,'required' => true
+        ,'required' => false
         ,'columns' => 4
         ,'attributes' => array(
             'placeholder' => 'info@want2ski.com'
@@ -209,7 +174,8 @@ piklist('field', array(
         '3' => 'Instagram',
         '4' => 'YouTube',
         '5' => 'Pinterest',
-        '6' => 'Vimeo'
+        '6' => 'Vimeo',
+        '7' => 'Google+'
       )
     )
   )
@@ -228,22 +194,7 @@ piklist('field', array(
     ,'button' => __('Add Photos Here','resort')
   )
 ));
-/*piklist('field', array(
-  'type' => 'group'
-  ,'label' => 'Photo Gallery'
-  ,'fields' => array(
-     array(
-      'type' => 'file'
-      ,'field' => 'upload_photos'
-      ,'scope' => 'post_meta'
-      ,'label' => __('Add File(s)','resort')
-      ,'options' => array(
-        'modal_title' => __('Add File(s)','resort')
-        ,'button' => __('Add Photos Here','resort')
-      )
-    )
-  )
-));*/
+
 /*
   Opening/Close Hours
 */
@@ -365,34 +316,30 @@ piklist('field', array(
 
 
 piklist('field', array(
-'type' => 'checkbox'
-,'field' => 'resort_options'
-,'label' => 'Options'
-,'description' => 'Select when true.'
-,'attributes' => array(
-  'class' => 'text'
-)
-,'choices' => array(
-    '1' => 'Parking',
-    '2' => 'Babysitter',
-    '3' => 'Discotheque/Club',
-    '4' => 'Bars/pubs',
-    '5' => 'Après-ski',
-    '6' => 'Festival',
-    '7' => 'Cinema',
-    '8' => 'Spa',
-    '9' => 'Family Discount',
-    '10' => 'Indoor Swimming Pool',
-    '11' => 'Freeride',
-    '12' => 'Snow park',
-    '13' => 'Ski school',
-    '14' => 'Bus service in resort',
-    '15' => 'Bus service to train station'
-)
-,'list' => true
-/*,'on_post_status' => array(
-  'value' => 'lock'
-)*/
+  'type'        => 'checkbox',
+  'field'       => 'resort_options',
+  'label'       => 'Options',
+  'description' => 'Select when true.',
+  'choices' => array(
+    '1'   => 'Parking',
+    '2'   => 'Babysitter',
+    '3'   => 'Discotheque/Club',
+    '4'   => 'Bars/pubs',
+    '5'   => 'Après-ski',
+    '6'   => 'Festival',
+    '7'   => 'Cinema',
+    '8'   => 'Spa',
+    '9'   => 'Family Discount',
+    '10'  => 'Indoor Swimming Pool',
+    '11'  => 'Freeride',
+    '12'  => 'Snow park',
+    '13'  => 'Ski school',
+    '14'  => 'Bus service in resort',
+    '15'  => 'Bus service to train station',
+    '16'  => 'Newsletter'
+  ),
+  'list'        => true,
+  'serialize'   => true,
 ));
 
 
@@ -418,10 +365,6 @@ piklist('field', array(
     )
   )
 );
-
-
-
-
 
 /*
   Hotel Acomodation
