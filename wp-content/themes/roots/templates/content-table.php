@@ -28,7 +28,8 @@
         ?>
 
       <tr>
-        <td><a href="#my_modal" data-toggle="modal" data-book-id="<?php echo $post->ID; ?>"><?php echo the_title(); ?></a></td>
+        <td><a href="<?php echo get_post_meta($post->ID, 'website', true); ?>" target="_blank"><?php echo the_title(); ?></a></td>
+        <!-- <td><a href="#my_modal" data-toggle="modal" data-book-id="<?php //echo $post->ID; ?>"><?php //echo the_title(); ?></a></td> -->
         <!-- <td><a href="<?php //echo $webcam;  ?>" target="_blank"><img src="<?php //echo $webcam  ?>" width="100"></a></td> -->
         <td><?php echo $region;?></td>
         <td><?php echo get_post_meta($post->ID, 'opening_date', true); ?></td>

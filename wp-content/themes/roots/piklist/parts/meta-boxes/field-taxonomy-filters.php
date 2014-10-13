@@ -1,20 +1,20 @@
 <?php
 /*
-Title: Select a Region
+Title: Select one or more Filters
 Post Type: resort
-Order: 10
+Order: 2
 Priority: default
 Context: side
-Collapse: false
+Collapse: true
 */
-piklist('field',array(
-  'type' => 'select'
+
+piklist('field', array(
+  'type' => 'checkbox'
   ,'scope' => 'taxonomy'
-  ,'field' => 'region'
-  ,'label' => 'Region'
-  ,'columns' => 5
+  ,'field' => 'Filters'
+  ,'label' => 'Filters:'
   ,'choices' => piklist(
-    get_terms('Regions', array(
+    get_terms('Filters', array(
       'hide_empty' => false
     ))
     ,array(

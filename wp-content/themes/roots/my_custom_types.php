@@ -64,7 +64,7 @@ function my_custom_resort() {
         'capability_type' => 'post',
         'hierarchical' => true,
         'menu_position' => null,
-		    'taxonomies' => array( 'Regions','Currencies'),//'editor',
+		    'taxonomies' => array( 'Regions','Filters'),//'editor',
         'supports' => array('title','editor','thumbnail','page-attributes')
     );
 

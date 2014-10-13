@@ -16,7 +16,7 @@ Collapse: true
 <?php
 
   piklist('field', array(
-    'type' => 'radio'
+    'type' => 'checkbox'
     ,'scope' => 'taxonomy'
     ,'field' => 'piklist_demo_type'
     ,'label' => 'Demo Types'
@@ -36,5 +36,5 @@ Collapse: true
     'location' => __FILE__
     ,'type' => 'Meta Box'
   ));
-  
+
 ?>
