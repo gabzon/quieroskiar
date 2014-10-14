@@ -1,4 +1,4 @@
-<table id="example" class="table table-striped table-bordered">
+<table id="myDataTable" class="table table-striped table-bordered">
   <thead>
     <tr>
         <th>Resort</th>
@@ -13,8 +13,9 @@
   </thead>
 
   <tbody>
-    <?php global $wp_query;
-    $wp_query = new WP_Query("post_type=resort&post_status=publish");
+    <?php
+    global $wp_query;
+    $wp_query = new WP_Query("post_type=resort&post_status=publish&posts_per_page=-1");
     while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
         <?php
@@ -59,13 +60,18 @@
     </tr>
   </tfoot>
 </table>
-
 <?php get_template_part('templates/modal-resort') ?>
 
 <script type="text/javascript" language="javascript" class="init">
 $(document).ready(function() {
 
-  $('#example').dataTable();
+  $('#myDataTable').dataTable({
+     "bJQueryUI":true,
+      "bSort":false,
+      "bPaginate":true,
+      "sPaginationType":"full_numbers",
+       "iDisplayLength": 10
+   });
 
 });
 </script>
