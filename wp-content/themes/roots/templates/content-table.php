@@ -11,7 +11,7 @@
         <th>Price Children</th>
     </tr>
   </thead>
-
+  
   <tbody>
     <?php
     global $wp_query;
