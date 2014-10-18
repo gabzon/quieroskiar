@@ -4,14 +4,12 @@
         <th>Resort</th>
         <th>Webcam</th>
         <th>Region</th>
-        <th>Opening date</th>
-        <th>Altitude Top</th>
-        <th>Altitude Bottom</th>
-        <th>Price Adult</th>
-        <th>Price Children</th>
+        <th>Status</th>
+        <th>Altitude Top (Village)</th>
+        <th>Price Adult (children)</th>
     </tr>
   </thead>
-  
+
   <tbody>
     <?php
     global $wp_query;
@@ -34,13 +32,19 @@
             <?php echo the_title(); ?>
           </a>
         </td>
+
         <td><a href="<?php echo $webcam;  ?>" target="_blank"><img src="<?php echo $webcam  ?>" width="100"></a></td>
+
         <td><?php echo $region;?></td>
-        <td><?php echo get_post_meta($post->ID, 'opening_date', true); ?></td>
+        <!-- <td><?php //echo get_post_meta($post->ID, 'opening_date', true); ?></td> -->
+
+        <td>
+          <img src="<?php echo get_stylesheet_directory_uri()."/assets/img/traffic_light.png" ?>" alt="" width="100px"/>
+        </td>
+
         <td><?php echo get_post_meta($post->ID, 'altitude_top', true); ?></td>
-        <th><?php echo get_post_meta($post->ID, 'altitude_bottom', true); ?></th>
-        <td><?php echo $currency . " " .get_post_meta($post->ID, 'price_adult', true); ?></td>
-        <td><?php echo $currency . " " . get_post_meta($post->ID, 'Price_children', true);  ?></td>
+
+        <td><?php echo $currency . " " .get_post_meta($post->ID, 'price_adult', true)."(".get_post_meta($post->ID, 'Price_children', true).")" ?></td>
       </tr>
 
     <?php endwhile; ?>
@@ -49,14 +53,12 @@
 
   <tfoot>
     <tr>
-        <th>Resort</th>
-        <th>Webcam</th>
-        <th>Region</th>
-        <th>Opening date</th>
-        <th>Altitude Top</th>
-        <th>Altitude Bottom</th>
-        <th>Price Adult</th>
-        <th>Price Children</th>
+      <th>Resort</th>
+      <th>Webcam</th>
+      <th>Region</th>
+      <th>Status</th>
+      <th>Altitude Top (Village)</th>
+      <th>Price Adult (children)</th>
     </tr>
   </tfoot>
 </table>
@@ -67,7 +69,7 @@ $(document).ready(function() {
 
   $('#myDataTable').dataTable({
      "bJQueryUI":true,
-      "bSort":false,
+      "bSort":true,
       "bPaginate":true,
       "sPaginationType":"full_numbers",
        "iDisplayLength": 10
