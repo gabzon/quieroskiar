@@ -1,6 +1,9 @@
 <?php
   define('WP_USE_THEMES',false);
   require_once("/../../../../wp-blog-header.php");
+  $numero = count($_GET);
+  $tags = array_keys($_GET);
+  $data = array_values($_GET);
 ?>
 <div id="dtables">
 <table id="myDataTable" class="table table-striped table-bordered">
@@ -27,10 +30,23 @@
         <?php
           $resort_currency = get_post_meta($post->ID, 'price_currency', true);
           $currency = ($resort_currency == 0 ? 'CHF' : 'EUR');
-          //$term_list = wp_get_post_terms($post->ID, 'Filters');
-          $term_list = wp_get_post_terms($post->ID, 'Regions');          
+          $term_list = wp_get_post_terms($post->ID, 'Filters');
+          $regions = wp_get_post_terms($post->ID, 'Regions');
+          //$region = $regions[0]->name;
           $webcam = get_post_meta($post->ID, 'webcam', true);
           //get_the_post_thumbnail( $post->ID,'medium' );
+          $sw=1;
+          $i=0;
+          $cont=0;
+          if(count($term_list)==count($data)){
+            while($term_list[$i] && $sw){
+              if(!in_array($term_list[$i]->name,$data))
+                $sw=0;
+              else
+                $cont++;
+              $i++;
+            }
+          if($sw){
         ?>
 
       <tr>
@@ -40,9 +56,9 @@
         <td>
         <?php
         $i=0;
-          while($term_list[$i]){
-            echo $term_list[$i]->name;
-            if($i>=0 && $term_list[$i+1])
+          while($regions[$i]){
+            echo $regions[$i]->name;
+            if($i>=0 && $regions[$i+1])
               echo", ";
             $i++;
           }
@@ -56,7 +72,12 @@
         <td><?php echo $currency . " " . get_post_meta($post->ID, 'Price_children', true);  ?></td>
       </tr>
 
-    <?php endwhile; ?>
+    <?php
+    }
+
+    }
+  endwhile;
+    ?>
 
   </tbody>
 
