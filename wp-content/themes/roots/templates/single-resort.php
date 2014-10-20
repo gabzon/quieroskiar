@@ -52,6 +52,7 @@
 $options = get_post_meta($post->ID, 'resort_options', true);
 
 print_r($options);
+
 /*echo $options[0];
 echo $options[2];*/
 echo"<ul>";
