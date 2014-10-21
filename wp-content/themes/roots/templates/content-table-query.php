@@ -1,6 +1,6 @@
 <?php
-  define('WP_USE_THEMES',false);
-  require_once("/../../../../wp-blog-header.php");
+  //define('WP_USE_THEMES',false);
+  //require_once("/../../../../wp-blog-header.php");
   $numero = count($_GET);
   $tags = array_keys($_GET);
   $data = array_values($_GET);

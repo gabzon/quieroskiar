@@ -1,27 +1,3 @@
-<section>
-  <ul class="filters">
-    <!--<li><input type="checkbox" class="filter-query" value="shopping"> Shopping</li>
-    <li><input type="checkbox" class="filter-query" value="sport"> Sport</li>
-  -->
-    <?php
-      $taxonomy = array(
-        'post_tag',
-        'Filters'
-      );
-      $args = array(
-        'orderby'  => 'name',
-        'hide_empty' => 0
-      );
-      $filters = get_terms($taxonomy,$args);
-      foreach($filters as $filter){
-        //echo"<li><input type='checkbox' class='filter-query' value='$filter->term_id'> $filter->name</li>\n";
-        echo"<li><input type='checkbox' class='filter-query' value='$filter->name'> $filter->name</li>\n";
-      }
-    ?>
-  </ul>
-</section>
-
-<script type="text/javascript" language="javascript" class="init">
 $(document).ready(function() {
   $(".filter-query").change(function(){
     var values=[];
@@ -60,4 +36,3 @@ $(document).ready(function() {
     }*/
   });
 });
-</script>

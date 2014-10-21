@@ -1,13 +1,10 @@
-<?php
-  define('WP_USE_THEMES',false);
-  require_once("/../../../../wp-blog-header.php");
-?>
 <div id="dtables">
 <table id="myDataTable" class="table table-striped table-bordered">
   <thead>
     <tr>
         <th>Resort</th>
         <th>Webcam</th>
+        <th>Category</th>
         <th>Region</th>
         <th>Status</th>
         <th>Altitude Top (Village)</th>
@@ -15,70 +12,71 @@
     </tr>
   </thead>
 
-  <tbody>
-    <?php
-    global $wp_query;
-    $wp_query = new WP_Query("post_type=resort&post_status=publish&posts_per_page=-1");
-    while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+<tbody>
+   <?php
+   global $wp_query;
+   $wp_query = new WP_Query("post_type=resort&post_status=publish&posts_per_page=-1");
+   while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
-        <?php
-          $resort_currency = get_post_meta($post->ID, 'price_currency', true);
-          $currency = ($resort_currency == 0 ? 'CHF' : 'EUR');
-          //$term_list = wp_get_post_terms($post->ID, 'Filters');
-          $term_list = wp_get_post_terms($post->ID, 'Regions');          
-          $webcam = get_post_meta($post->ID, 'webcam', true);
-          //get_the_post_thumbnail( $post->ID,'medium' );
-        ?>
+   <?php
+   $resort_currency = get_post_meta($post->ID, 'price_currency', true);
+   $currency = ($resort_currency == 0 ? 'CHF' : 'EUR');
+   //$term_list = wp_get_post_terms($post->ID, 'Filters');
+   $term_list = wp_get_post_terms($post->ID, 'Regions');
+   $webcam = get_post_meta($post->ID, 'webcam', true);
+   //get_the_post_thumbnail( $post->ID,'medium' );
+   ?>
 
-      <tr>
-<<<<<<< HEAD
-        <td><a href="<?php echo get_post_meta($post->ID, 'website', true); ?>" target="_blank"><?php echo the_title(); ?></a></td>
-        <!-- <td><a href="#my_modal" data-toggle="modal" data-book-id="<?php //echo $post->ID; ?>"><?php //echo the_title(); ?></a></td> -->
-        <!-- <td><a href="<?php //echo $webcam;  ?>" target="_blank"><img src="<?php //echo $webcam  ?>" width="100"></a></td> -->
-        <td>
-        <?php
-        $i=0;
-          while($term_list[$i]){
-            echo $term_list[$i]->name;
-            if($i>=0 && $term_list[$i+1])
-              echo", ";
-            $i++;
-          }
-        ?>
-      </td>
-        <!--<td><?php //echo $region;?></td>-->
-        <td><?php echo get_post_meta($post->ID, 'opening_date', true); ?></td>
-=======
-        <td>
-          <a href="<?php echo get_post_meta($post->ID, 'website', true); ?>" target="_blank">
+   <tr>
+
+      <td>
+         <a href="<?php echo get_post_meta($post->ID, 'website', true); ?>" target="_blank">
             <?php echo get_the_post_thumbnail( $post->ID,'medium' ); ?>
             <?php echo the_title(); ?>
-          </a>
-        </td>
+         </a>
+      </td>
 
-        <td><a href="<?php echo $webcam;  ?>" target="_blank"><img src="<?php echo $webcam  ?>" width="100"></a></td>
+      <td><a href="<?php echo $webcam;  ?>" target="_blank"><img src="<?php echo $webcam  ?>" width="100"></a></td>
 
-        <td><?php echo $region;?></td>
-        <!-- <td><?php //echo get_post_meta($post->ID, 'opening_date', true); ?></td> -->
+      <!-- Filter category -->
+      <td>
+         <?php
+         $i=0;
+         while($term_list[$i]){
+            echo $term_list[$i]->name;
+            if($i>=0 && $term_list[$i+1])
+            echo", ";
+            $i++;
+         }
+         ?>
+      </td>
 
-        <td>
-          <img src="<?php echo get_stylesheet_directory_uri()."/assets/img/traffic_light.png" ?>" alt="" width="100px"/>
-        </td>
+      <!-- region -->
+      <td><?php echo $region;?></td>
 
->>>>>>> origin/master
-        <td><?php echo get_post_meta($post->ID, 'altitude_top', true); ?></td>
+      <!-- Status -->
+      <td>
+         <a href="<?php echo get_post_meta($post->ID,'ski_area_status',true); ?>">
+            <img src="<?php echo get_stylesheet_directory_uri()."/assets/img/traffic-light.png" ?>" alt=""/>
+         </a>
+      </td>
 
-        <td><?php echo $currency . " " .get_post_meta($post->ID, 'price_adult', true)."(".get_post_meta($post->ID, 'Price_children', true).")" ?></td>
-      </tr>
+      <!-- Altitude -->
+      <td><?php echo get_post_meta($post->ID, 'altitude_top', true); ?></td>
 
-    <?php endwhile; ?>
+      <!-- Price -->
+      <td><?php echo $currency . " " .get_post_meta($post->ID, 'price_adult', true)."(".get_post_meta($post->ID, 'Price_children', true).")" ?></td>
+   </tr>
 
-  </tbody>
+<?php endwhile; ?>
+
+</tbody>
 
   <tfoot>
     <tr>
       <th>Resort</th>
       <th>Webcam</th>
+      <th>Category</th>
       <th>Region</th>
       <th>Status</th>
       <th>Altitude Top (Village)</th>
