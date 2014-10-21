@@ -21,10 +21,8 @@
    <?php
    $resort_currency = get_post_meta($post->ID, 'price_currency', true);
    $currency = ($resort_currency == 0 ? 'CHF' : 'EUR');
-   //$term_list = wp_get_post_terms($post->ID, 'Filters');
    $term_list = wp_get_post_terms($post->ID, 'Regions');
    $webcam = get_post_meta($post->ID, 'webcam', true);
-   //get_the_post_thumbnail( $post->ID,'medium' );
    ?>
 
    <tr>
