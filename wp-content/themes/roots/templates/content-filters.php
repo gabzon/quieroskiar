@@ -1,3 +1,4 @@
+<h4>Filters</h4>
 <section>
   <ul class="filters">
     <?php

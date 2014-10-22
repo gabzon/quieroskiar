@@ -1,16 +1,16 @@
 $(document).ready(function() {
-  $(".filter-query").change(function(){
+  $(".region-query").change(function(){
     var values=[];
-    values=$(".filter-query:checked").map(function(){return this.value;}).toArray();
-    for(var i=0, data="filters"+i;i<values.length; ++i){
+    values=$(".region-query:checked").map(function(){return this.value;}).toArray();
+    for(var i=0, data="regions"+i;i<values.length; ++i){
       //alert(values[i]);
       if(i>0){
-        data=data+'&'+'filters'+i;
+        data=data+'&'+'regions'+i;
       }
       data=data+'='+values[i];
     }
     if(values.length>0){
-        path="wp-content/themes/roots/templates/content-table-filters.php";
+        path="wp-content/themes/roots/templates/content-table-regions.php";
         $("#dtables").load(path,data);
     }else{
       path="wp-content/themes/roots/templates/content-table.php";
