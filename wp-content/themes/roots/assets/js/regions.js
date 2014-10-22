@@ -9,6 +9,11 @@ $(document).ready(function() {
       }
       data=data+'='+values[i];
     }
+
+    /*$(".filter-query").each(function() {
+        this.checked = false;
+    });*/
+
     if(values.length>0){
         path="wp-content/themes/roots/templates/content-table-regions.php";
         $("#dtables").load(path,data);

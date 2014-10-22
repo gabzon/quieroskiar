@@ -11,7 +11,7 @@
     do_action('get_header');
     get_template_part('templates/header');
   ?>
-
+<div id="page-content-wrapper">
   <div class="wrap container" role="document">
     <div class="content row">
 
@@ -19,16 +19,16 @@
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
 
-      <?php if (roots_display_sidebar()) : ?>
-        <aside class="sidebar" role="complementary">
-          <?php include roots_sidebar_path(); ?>
-        </aside><!-- /.sidebar -->
-      <?php endif; ?>
+      <?php //if (roots_display_sidebar()) : ?>
+        <!--<aside class="sidebar" role="complementary">
+          <?php //include roots_sidebar_path(); ?>
+        </aside>--><!-- /.sidebar -->
+      <?php //endif; ?>
 
     </div><!-- /.content -->
 
   </div><!-- /.wrap -->
-
+</div>
   <?php get_template_part('templates/footer'); ?>
 
 </body>

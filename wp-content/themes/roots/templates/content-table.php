@@ -92,7 +92,7 @@
 </table>
 <div id="dtables">
 <?php get_template_part('templates/modal-resort') ?>
-
+<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 <script type="text/javascript" language="javascript" class="init">
 $(document).ready(function() {
 
