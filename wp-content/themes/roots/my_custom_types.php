@@ -65,7 +65,7 @@ function my_custom_resort() {
         'hierarchical' => true,
         'menu_position' => null,
 		    'taxonomies' => array( 'Regions','Filters'),//'editor',
-        'supports' => array('title','editor','thumbnail','page-attributes')
+        'supports' => array('title','editor','thumbnail')
     );
 
     register_post_type( 'Resort', $args ); /* Registramos y a funcionar */

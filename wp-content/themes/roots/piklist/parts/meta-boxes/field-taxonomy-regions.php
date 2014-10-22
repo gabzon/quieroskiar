@@ -1,14 +1,15 @@
 <?php
 /*
-Title: Select one Region
+Title: Select one or more Regions
 Post Type: resort
 Order: 10
 Priority: default
 Context: side
 Collapse: false
 */
+
 piklist('field',array(
-  'type' => 'select'
+  'type' => 'checkbox'
   ,'scope' => 'taxonomy'
   ,'field' => 'Regions'
   ,'label' => 'Regions:'

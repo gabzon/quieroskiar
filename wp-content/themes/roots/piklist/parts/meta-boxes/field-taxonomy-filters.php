@@ -5,7 +5,7 @@ Post Type: resort
 Order: 2
 Priority: default
 Context: side
-Collapse: true
+Collapse: false
 */
 
 piklist('field', array(

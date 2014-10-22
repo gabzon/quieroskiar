@@ -14,4 +14,14 @@ function remove_menus(){
 
 }
 add_action( 'admin_menu', 'remove_menus' );
+
+function remove_regions_meta() {
+	remove_meta_box( 'tagsdiv-Regions', 'Resort', 'side' );
+}
+add_action( 'admin_menu' , 'remove_regions_meta' );
+
+function remove_filters_meta() {
+  remove_meta_box( 'tagsdiv-Filters', 'Resort', 'side' );
+}
+add_action( 'admin_menu' , 'remove_filters_meta' );
 ?>
