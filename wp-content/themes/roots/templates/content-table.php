@@ -1,6 +1,6 @@
 <?php
-  define('WP_USE_THEMES',false);
-  require_once("/../../../../wp-blog-header.php");
+  //define('WP_USE_THEMES',false);
+  //require_once("/../../../../wp-blog-header.php");
 ?>
 <div id="dtables">
 <table id="myDataTable" class="table table-striped table-bordered">
