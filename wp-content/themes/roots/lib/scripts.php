@@ -43,8 +43,6 @@ function roots_scripts() {
       'datatables'        => '/assets/vendor/datatables/media/js/jquery.dataTables.js',
       'dt-bootstrap-js'   => '/assets/vendor/datatables/media/js/dataTables.bootstrap.js',
       'dt-bootstrap-css'  => '/assets/vendor/datatables/media/css/dataTables.bootstrap.css',
-      'filters'           => '/assets/js/filters.js',
-      'regions'           => '/assets/js/regions.js',
       'fixedHeaders'      => '/assets/js/dataTables.fixedHeader.js',
     );
   }
@@ -72,8 +70,6 @@ function roots_scripts() {
   wp_enqueue_script('datatables', get_template_directory_uri() . $assets['datatables'], array('jquery'), null, false);
   wp_enqueue_script('dt-bootstrap-js', get_template_directory_uri() . $assets['dt-bootstrap-js'], array('datatables'), null, false);
   wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
-//  wp_enqueue_script('filters', get_template_directory_uri() . $assets['filters'], array('jquery'), null, true);
-//  wp_enqueue_script('regions', get_template_directory_uri() . $assets['regions'], array('jquery'), null, true);
   wp_enqueue_script('fixedHeaders', get_template_directory_uri() . $assets['fixedHeaders'], array('datatables'), null, true);
 
 }

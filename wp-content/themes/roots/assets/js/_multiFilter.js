@@ -8,7 +8,6 @@ $(document).ready(function() {
    ]
    });
 
-
    new $.fn.dataTable.FixedHeader( table );
 
    $(':checkbox[name="column"]').click(function() {
@@ -21,6 +20,8 @@ $(document).ready(function() {
       }).toArray().join(' ');
 
       $('#myDataTable').dataTable().fnFilter(filter, null, regexFilter, smartFilter);
+
+      $(this).parent().toggleClass("filter-checked");
    });
 
 });

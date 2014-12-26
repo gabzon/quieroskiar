@@ -15,13 +15,23 @@
    <div class="col-md-11">
       <div id="checkboxes">
          <?php  foreach($filters as $filter): ?>
-            <span class="filter-label label label-info">
+            <span class="filter-label">
                <input type="checkbox" name="column" value="<?php echo $filter->name;?>">
                <?php echo $filter->name ?>
             </span>
          <?php endforeach; ?>
+      </div>
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-md-1">
+      <strong>From</strong>
+   </div>
+   <div class="col-md-11">
+      <div id="checkboxes">
          <?php  foreach($proximity as $p): ?>
-            <span class="filter-label label label-info">
+            <span class="filter-label">
                <input type="checkbox" name="column" value="<?php echo $p->name;?>">
                <?php echo $p->name ?>
             </span>
