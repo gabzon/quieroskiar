@@ -2,7 +2,7 @@
 /*
 Title: Users
 Setting: piklist_core
-Order: 20
+Order: 1
 */
 
 

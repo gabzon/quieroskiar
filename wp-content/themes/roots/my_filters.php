@@ -22,4 +22,3 @@ function change_thumbnail_name( $content ) {
         return $content;
 }
 add_filter( 'admin_post_thumbnail_html', 'change_thumbnail_name' );
-?>

@@ -1,19 +1,22 @@
-<h4>Regions</h4>
-<section>
-  <ul class="filters">
-    <?php
-      $taxonomy = array(
-        'post_tag',
-        'Regions'
-      );
-      $args = array(
-        'orderby'  => 'name',
-        'hide_empty' => 0
-      );
-      $regions = get_terms($taxonomy,$args);
-      foreach($regions as $region){
-        echo"<li><input type='checkbox' class='region-query' value='$region->name'> $region->name</li>\n";
-      }
-    ?>
-  </ul>
-</section>
+<!-- <?php
+ // $taxonomy = array( 'post_tag','proximity' );
+ // $args = array('orderby'  => 'name','hide_empty' => 0);
+ // $proximity = get_terms($taxonomy,$args);
+?>
+
+<div class="row">
+   <div class="col-md-1">
+      <strong>From</strong>
+   </div>
+
+   <div class="col-md-11">
+      <div id="checkboxes">
+         <?php // foreach($proximity as $p): ?>
+            <span class="filter-label label label-info">
+               <input type="checkbox" name="column" value="<?php// echo $p->name;?>">
+               <?php// echo $p->name ?>
+            </span>
+         <?php // endforeach; ?>
+      </div>
+   </div>
+</div> -->

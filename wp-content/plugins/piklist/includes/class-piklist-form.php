@@ -105,6 +105,19 @@ class PikList_Form
     'datepicker' => 'text'
     ,'timepicker' => 'text'
     ,'colorpicker' => 'text'
+    ,'password' => 'text'
+    ,'color' => 'text'
+    ,'date' => 'text'
+    ,'datetime' => 'text'
+    ,'datetime-local' => 'text'
+    ,'email' => 'text'
+    ,'month' => 'text'
+    ,'range' => 'text'
+    ,'search' => 'text'
+    ,'tel' => 'text'
+    ,'time' => 'text'
+    ,'url' => 'text'
+    ,'week' => 'text'
     ,'submit' => 'button'
     ,'reset' => 'button'
   );
@@ -1428,7 +1441,7 @@ class PikList_Form
 
     $label .= $field['label'];
     $label .= !empty($field['required']) ? '<span class="piklist-required">*</span>' : null;
-    $label .= isset($field['help']) ? '<div class="piklist-tooltip dashicons dashicons-editor-help" data-piklist-tooltip="' . $field['help'] . '"><span class="icon-help"></span></div>' : null;
+    $label .= isset($field['help']) ? '<div class="piklist-tooltip dashicons dashicons-editor-help" data-piklist-tooltip="' . esc_html($field['help']) . '"><span class="icon-help"></span></div>' : null;
   
     return $label;
 
@@ -1723,8 +1736,11 @@ class PikList_Form
                 }
               }
 
-              wp_set_object_terms($id, $terms, $taxonomy, false);
-              clean_object_term_cache($id, $taxonomy);
+              if (isset($id))
+              {
+                wp_set_object_terms($id, $terms, $taxonomy, false);
+                clean_object_term_cache($id, $taxonomy);
+              }
             }
           }
 

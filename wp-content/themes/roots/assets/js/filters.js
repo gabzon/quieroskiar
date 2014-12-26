@@ -1,25 +1,20 @@
+
 $(document).ready(function() {
-  $(".filter-query").change(function(){
-    var values=[];
-    values=$(".filter-query:checked").map(function(){return this.value;}).toArray();
-    for(var i=0, data="filters"+i;i<values.length; ++i){
-      //alert(values[i]);
-      if(i>0){
-        data=data+'&'+'filters'+i;
-      }
-      data=data+'='+values[i];
-    }
+   var table = $('#myDataTable').dataTable({
+      "order":[[2,'asc']]
+   });
 
-    /*$('.region-query').each(function() {
-        this.checked = false;
-    });*/
+   new $.fn.dataTable.FixedHeader( table );
 
-    if(values.length>0){
-        path="wp-content/themes/roots/templates/content-table-filters.php";
-        $("#dtables").load(path,data);
-    }else{
-      path="wp-content/themes/roots/templates/content-table.php";
-      $("#dtables").load(path);
-    }
-  });
+   $(':checkbox[name="filter-column"]').click(function() {
+      var filter = '',
+      regexFilter = true,
+      smartFilter = false;
+
+      filter = $('[name="' + this.name + '"]:checked').map(function () {
+         return this.value;
+      }).toArray().join('|');
+
+      $('#myDataTable').dataTable().fnFilter(filter, 0, regexFilter, smartFilter);
+   });
 });

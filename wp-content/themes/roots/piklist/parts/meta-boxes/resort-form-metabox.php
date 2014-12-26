@@ -4,525 +4,466 @@ Title: Include a new resort
 Post Type: resort
 */
 
-/*
-  Basic Information
-*/
+/*******************************************************************************
+** Resort and/or Tourist office Information
+** Address, NPA, Location, Phone, Fax, Email, Website
+*******************************************************************************/
 piklist('field', array(
-    'type' => 'group'
-    ,'label' => 'Tourism Office'
-    ,'description' => 'Select y the contact type (Want2Ski or Tourist contact)'
-    ,'fields' => array(
+   'type'         => 'group',
+   'field'        => 'resort_tourist_office_group',
+   'label'        => _x('Tourism Office','Piklist metaboxes','roots'),
+   'fields'       => array(
+         array(
+            'type'         => 'text',
+            'field'        => 'address',
+            'label'        => 'Address',
+            'columns'      => 12,
+            'attributes'   => array('placeholder' => 'Enter the addres here')
+         ),
+         array(
+            'type'         => 'text',
+            'field'        => 'npa',
+            'label'        => _x('NPA','Piklist metaboxes','roots'),
+            'columns'      => 2
+         ),
+         array(
+            'type'         => 'text',
+            'field'        => 'location',
+            'label'        => _x('Location','Piklist metaboxes','roots'),
+            'columns'      => 5,
+         ),
+         array(
+            'type'         => 'text',
+            'field'        => 'phone',
+            'label'        => _x('Phone Number', 'Pikilist metaboxes', 'roots'),
+            'required'     => false,
+            'columns'      => 6,
+            'attributes'   => array('placeholder' => '+41 xx xxx xx xx')
+         ),
+         array(
+            'type'         => 'text',
+            'field'        => 'fax',
+            'label'        => 'Fax',
+            'columns'      => 6,
+            'attributes'   => array('placeholder' => '+41 xx xxx xx xx')
+         ),
+         array(
+            'type'         => 'text',
+            'field'        => 'email',
+            'label'        => 'Email',
+            'columns'      => 6,
+            'attributes'   => array('placeholder' => 'mail@want2ski.ch'),
+            //'validate'     => array(
+                  //array('type' => 'email'),
+            //)
+         ),
+         array(
+            'type' => 'text',
+            'field' => 'website',
+            'label' => 'Website',
+            'columns' => 6,
+            'attributes' => array('placeholder' => 'Example: www.wan2ski.ch')
+         )
+      )
+));
+
+/*******************************************************************************
+** Resort and/or Tourist office contact Information
+** Name, job title, Phone, Mobile, Email
+*******************************************************************************/
+
+piklist('field', array(
+   'type'      => 'group',
+   'field'     => 'contact_info',
+   'label'     => _x('Contact Information','Piklist metaboxes','roots'),
+   'add_more'  => true,
+   'fields'    => array(
       array(
-          'type' => 'text'
-          ,'field' => 'address'
-          ,'label' => 'Address'
-          ,'required' => false
-          ,'columns' => 12
-          ,'attributes' => array(
-              'placeholder' => 'Enter the addres here'
-            )
-      )
-      ,array(
-          'type' => 'text'
-          ,'field' => 'npa'
-          ,'label' => 'NPA'
-          ,'required' => false
-          ,'columns' => 2
-      )
-      ,array(
-          'type' => 'text'
-          ,'field' => 'location'
-          ,'label' => 'Location'
-          ,'required' => false
-          ,'columns' => 5
-      )
-      ,array(
-          'type' => 'text'
-          ,'field' => 'phone'
-          ,'label' => 'Phone Number'
-          ,'required' => false
-          ,'columns' => 6
-          ,'attributes' => array(
-              'placeholder' => '+41 xx xxx xx xx'
-          )
-      )
-      ,array(
-          'type' => 'text'
-          ,'field' => 'fax'
-          ,'label' => 'Fax'
-          ,'required' => false
-          ,'columns' => 6
-          ,'attributes' => array(
-              'placeholder' => '+41 xx xxx xx xx'
-            )
-      )
-        ,array(
-        'type' => 'text'
-        ,'field' => 'email'
-        ,'label' => 'Email Address'
-        ,'required' => false
-        ,'columns' => 6
-        ,'attributes' => array(
-            'placeholder' => 'mail@want2ski.ch'
-          )
-      ,'validate' => array(
-          array(
-            'type' => 'email'
-          )
-          ,array(
-            'type' => 'email_domain'
-          )
-        ))
-        ,array(
-        'type' => 'text'
-        ,'field' => 'website'
-        ,'label' => 'Website'
-        ,'required' => false
-        ,'columns' => 6
-        ,'attributes' => array(
-            'placeholder' => 'Example: www.wan2ski.ch'
-          )
-        )
-      )
-
-  ));
-
-/*
-  Contact Information
-*/
-piklist('field', array(
-  'type' => 'group'
-  ,'field' => 'contact_info'
-  ,'label' => 'Contact Information'
-  ,'add_more' => true
-  ,'fields' => array(
-    array(
-      'type' => 'text'
-      ,'field' => 'contact'
-      ,'label' => 'Contact'
-      ,'required' => false
-      ,'columns' => 6
-    )
-    ,array(
-      'type' => 'text'
-      ,'field' => 'job_title'
-      ,'label' => 'Job Title'
-      ,'required' => false
-      ,'columns' => 6
-    )
-    ,array(
-        'type' => 'text'
-        ,'field' => 'phone_contact'
-        ,'label' => 'Phone'
-        ,'required' => false
-        ,'columns' => 4
-        ,'attributes' => array(
-            'placeholder' => '+41 xx xxx xx xx'
-        )
-    )
-    ,array(
-        'type' => 'text'
-        ,'field' => 'mobile_contact'
-        ,'label' => 'Mobile'
-        ,'required' => false
-        ,'columns' => 4
-        ,'attributes' => array(
-            'placeholder' => '+41 xx xxx xx xx'
-        )
-    )
-    ,array(
-        'type' => 'text'
-        ,'field' => 'email_contact'
-        ,'label' => 'Email'
-        ,'required' => false
-        ,'columns' => 4
-        ,'attributes' => array(
-            'placeholder' => 'info@want2ski.com'
-        )
-    )
-  )
-));
-
-/*
-  Social Media Information
-*/
-piklist('field', array(
-  'type' => 'group'
-  ,'field' => 'social_media_info'
-  ,'label' => 'Social Media Information'
-  ,'add_more' => true
-  ,'fields' => array(
-    array(
-      'type' => 'text'
-      ,'field' => 'social_url'
-      ,'label' => 'Social Media URL'
-      ,'required' => false
-      ,'columns' => 6
-    )
-    ,array(
-      'type' => 'select'
-      ,'field' => 'social_type'
-      ,'value' => '1' // Sets default to Option 2
-      ,'label' => 'Social Type'
-      ,'columns' => 6
-      ,'attributes' => array(
-        'class' => 'text'
-      )
-      ,'choices' => array(
-        '1' => 'Facebook',
-        '2' => 'Twitter',
-        '3' => 'Instagram',
-        '4' => 'YouTube',
-        '5' => 'Pinterest',
-        '6' => 'Vimeo',
-        '7' => 'Google+'
-      )
-    )
-  )
-));
-/*
-  Photo Gallery
-*/
-piklist('field', array(
-  'type' => 'file'
-  ,'field' => 'upload_photos'
-  ,'label' => 'Photo Gallery'
-  ,'scope' => 'post_meta'
-  ,'label' => __('Add File(s)','resort')
-  ,'options' => array(
-    'modal_title' => __('Add File(s)','resort')
-    ,'button' => __('Add Photos Here','resort')
-  )
-));
-
-/*
-  Opening/Close Hours
-*/
-piklist('field', array(
-  'type' => 'group'
-  ,'label' => 'Opening/Close Hours'
-  ,'fields' => array(
-    array(
-      'type' => 'select'
-      ,'field' => 'open_hour'
-      ,'label' => 'Opening Hours'
-      ,'required' => false
-      ,'columns' => 6
-      ,'attributes' => array(
-        'multiple' => 'multiple'
-      )
-      ,'choices' => array(
-        '1' => '06:00'
-        ,'2' => '07:00'
-        ,'3' => '08:00'
-        ,'4' => '09:00'
-        ,'5' => '10:00'
-      )
-      ,'on_post_status' => array(
-        'value' => 'lock'
-      )
-    )
-    ,array(
-      'type' => 'select'
-      ,'field' => 'close_hour'
-      ,'label' => 'Close Hours'
-      ,'required' => false
-      ,'columns' => 6
-      ,'attributes' => array(
-        'multiple' => 'multiple'
-      )
-      ,'choices' => array(
-        '1' => '16:00'
-        ,'2' => '17:00'
-        ,'3' => '18:00'
-        ,'4' => '19:00'
-        ,'5' => '20:00'
-        ,'6' => '21:00'
-      )
-      ,'on_post_status' => array(
-        'value' => 'lock'
-      )
-    )
-  )
-));
-/*
-* Seasonal dates
-*/
-piklist('field', array(
-  'type' => 'group'
-  ,'label' => 'Seasonal dates'
-  ,'columns' => 12
-  ,'fields' => array(
-    array(
-      'type' => 'checkbox'
-      ,'field' => 'seasonal'
-      ,'label' => 'If yes then add opening and closing dates'
-      ,'choices' => array(
-        'show' => 'Yes'
-      )
-      ,'on_post_status' => array(
-          'value' => 'lock'
-        )
-    )
-    , array(
-      'type' => 'datepicker'
-      ,'field' => 'opening_date'
-      ,'label' => 'Opening Date'
-      ,'columns' => 6
-      ,'options' => array(
-        'dateFormat' => 'M d, yy'
-      )
-      ,'conditions' => array(
-        array(
-          'field' => 'seasonal'
-          ,'value' => 'show'
-        )
-      )
-      ,'attributes' => array(
-        'size' => 12
-      )
-      ,'value' => date('M d, Y', time())
-      ,'on_post_status' => array(
-        'value' => 'lock'
-      )
-    )
-    , array(
-      'type' => 'datepicker'
-      ,'field' => 'closing_date'
-      ,'label' => 'Closing Date'
-      ,'columns' => 6
-      ,'options' => array(
-        'dateFormat' => 'M d, yy'
-      )
-      ,'conditions' => array(
-        array(
-          'field' => 'seasonal'
-          ,'value' => 'show'
-        )
-      )
-      ,'attributes' => array(
-        'size' => 12
-      )
-      ,'value' => date('M d, Y', time())
-      ,'on_post_status' => array(
-        'value' => 'lock'
-      )
-    )
-  )
-));
-/*
-  Options
-*/
-
-
-piklist('field', array(
-  'type'        => 'checkbox',
-  'field'       => 'resort_options',
-  'label'       => 'Options',
-  'description' => 'Select when true.',
-  'choices' => array(
-    '1'   => 'Parking',
-    '2'   => 'Babysitter',
-    '3'   => 'Discotheque/Club',
-    '4'   => 'Bars/pubs',
-    '5'   => 'Après-ski',
-    '6'   => 'Festival',
-    '7'   => 'Cinema',
-    '8'   => 'Spa',
-    '9'   => 'Family Discount',
-    '10'  => 'Indoor Swimming Pool',
-    '11'  => 'Freeride',
-    '12'  => 'Snow park',
-    '13'  => 'Ski school',
-    '14'  => 'Bus service in resort',
-    '15'  => 'Bus service to train station',
-    '16'  => 'Newsletter'
-  ),
-  'list'        => true,
-  'serialize'   => true,
-));
-
-
-/*
-  Altitude Range
-*/
-piklist('field', array(
-    'type' => 'group',
-    'label' => 'Altitude',
-    'fields' => array(
-      array(
-          'type' => 'text',
-          'field' => 'altitude_top',
-          'label' => 'Altitude Top',
-          'columns' => 6
+         'type'      => 'text',
+         'field'     => 'contact',
+         'label'     => _x('Contact','Piklist metaboxes','roots'),
+         'columns'   => 6,
       ),
       array(
-          'type' => 'text',
-          'field' => 'altitude_bottom',
-          'label' => 'Altitude Bottom',
-          'columns' => 6
+         'type'      => 'text',
+         'field'     => 'job_title',
+         'label'     => _x('Job Title','Piklist metaboxes','roots'),
+         'columns'   => 6,
       ),
-    )
-  )
-);
+      array(
+         'type'         => 'text',
+         'field'        => 'phone_contact',
+         'label'        => _x('Phone',''),
+         'columns'      => 4,
+         'attributes'   => array('placeholder' => '+41 xx xxx xx xx')
+      ),
+      array(
+         'type'         => 'text',
+         'field'        => 'mobile_contact',
+         'label'        => _x('Mobile','Piklist metaboxes','roots'),
+         'columns'      => 4,
+         'attributes'   => array('placeholder' => '+41 xx xxx xx xx')
+      ),
+      array(
+         'type'         => 'text',
+         'field'        => 'email_contact',
+         'label'        => _x('Email','Piklist metaboxes','roots'),
+         'columns'      => 4,
+         'attributes'   => array('placeholder' => 'info@want2ski.com')
+      )
+   )
+));
 
-/*
-  Hotel Acomodation
-*/
+/*******************************************************************************
+** Resort Social media Information
+** Links to Facebook, Twitter, Google+, Pinterest, Instagram, YouTube, Vimeo
+*******************************************************************************/
 piklist('field', array(
-  'type' => 'group'
-  ,'label' => 'Hotel / Accomodation'
-  ,'fields' => array(
-    array(
-      'type' => 'radio'
-      ,'field' => '5stars'
-      ,'label' => '5 Stars'
-      ,'columns' => 3
-      ,'value' => 'y'
-      ,'choices' => array(
-        'y' => 'Yes'
-        ,'n' => 'No'
+   'type'      => 'group',
+   'field'     => 'social_media_info',
+   'label'     => _x('Social Media Information','Piklist metaboxes','roots'),
+   'add_more'  => true,
+   'fields'    => array(
+      array(
+         'type'      => 'text',
+         'field'     => 'social_url',
+         'label'     => _x('Social Media URL','Piklist metaboxes','roots'),
+         'columns'   => 6
+      ),
+      array(
+         'type'         => 'select',
+         'field'        => 'social_type',
+         'value'        => '1',
+         'label'        => 'Social Type',
+         'columns'      => 6,
+         'choices'      => array(
+            '1' => 'Facebook',
+            '2' => 'Twitter',
+            '3' => 'Instagram',
+            '4' => 'YouTube',
+            '5' => 'Pinterest',
+            '6' => 'Vimeo',
+            '7' => 'Google+'
+         )
       )
-      ,'on_post_status' => array(
-        'value' => 'lock'
+   )
+));
+
+/*******************************************************************************
+** Resort Seasonal dates
+** Conditional option for displaying the opening & closing season
+*******************************************************************************/
+piklist('field', array(
+   'type'      => 'group',
+   'label'     => 'Seasonal dates',
+   'columns'   => 12,
+   'fields'    => array(
+      array(
+         'type'            => 'checkbox',
+         'field'           => 'seasonal',
+         'label'           => __('If yes then add opening and closing dates'),
+         'choices'         => array('show' => 'Yes'),
+         'on_post_status'  => array('value' => 'lock')
+      ),
+      array(
+         'type'            => 'datepicker',
+         'field'           => 'opening_date',
+         'label'           => 'Opening Date',
+         'columns'         => 6,
+         'options'         => array('dateFormat' => 'M d, yy'),
+         'attributes'      => array('size' => 12),
+         'value'           => date('M d, Y', time()),
+         'on_post_status'  => array('value' => 'lock'),
+         'conditions'      => array(
+            array('field' => 'seasonal','value' => 'show')
+         )
+      ),
+      array(
+         'type'            => 'datepicker',
+         'field'           => 'closing_date',
+         'label'           => 'Closing Date',
+         'columns'         => 6,
+         'options'         => array('dateFormat' => 'M d, yy'),
+         'attributes'      => array('size' => 12),
+         'value'           => date('M d, Y', time()),
+         'on_post_status'  => array('value' => 'lock'),
+         'conditions'      => array(
+            array('field' => 'seasonal','value' => 'show')
+         )
       )
-     )
-     ,array(
-       'type' => 'radio'
-       ,'field' => '4star'
-       ,'label' => '4 Stars'
-       ,'columns' => 3
-       ,'value' => 'y'
-       ,'choices' => array(
-         'y' => 'Yes'
-         ,'n' => 'No'
-       )
-       ,'on_post_status' => array(
-         'value' => 'lock'
-       )
-     )
-     ,array(
-       'type' => 'radio'
-       ,'field' => '3stars'
-       ,'label' => '3 Stars'
-       ,'columns' => 3
-       ,'value' => 'y'
-       ,'choices' => array(
-         'y' => 'Yes'
-         ,'n' => 'No'
-       )
-       ,'on_post_status' => array(
-         'value' => 'lock'
-       )
-     )
-    ,array(
-      'type' => 'radio'
-      ,'field' => 'hostel'
-      ,'label' => 'Hostel'
-      ,'columns' => 3
-      ,'value' => 'y'
-      ,'choices' => array(
-        'y' => 'Yes'
-        ,'n' => 'No'
+   )
+));
+
+/*******************************************************************************
+** Resort Opening/Close Hours
+** Conditional option for displaying the opening & closing season
+*******************************************************************************/
+
+piklist('field', array(
+   'type'   => 'group',
+   'label'  => 'Opening/Close Hours',
+   'fields' => array(
+      array(
+         'type'            => 'select',
+         'field'           => 'open_hour',
+         'label'           => 'Opening Hours',
+         'columns'         => 6,
+         'attributes'      => array('multiple' => 'multiple'),
+         'on_post_status'  => array('value' => 'lock'),
+         'choices'         => array(
+            '1' => '05:00', '2'   => '05:30',
+            '3' => '06:00', '4'   => '06:30',
+            '5' => '07:00', '6'   => '07:30',
+            '7' => '08:00', '8'   => '08:30',
+            '9' => '09:00', '10'  => '09:30',
+            '11'=> '10:00',
+         )
+      ),
+      array(
+         'type'            => 'select',
+         'field'           => 'close_hour',
+         'label'           => 'Close Hours',
+         'columns'         => 6,
+         'attributes'      => array('multiple' => 'multiple'),
+         'on_post_status'  => array('value' => 'lock'),
+         'choices'         => array(
+            '1'   => '16:00', '2'  => '16:30',
+            '3'   => '17:00', '4'  => '17:30',
+            '5'   => '18:00', '6'  => '18:30',
+            '7'   => '19:00', '8'  => '19:30',
+            '9'   => '20:00', '10' => '20:30',
+            '11'  => '21:00', '12' => '21:30',
+         ),
       )
-      ,'on_post_status' => array(
-        'value' => 'lock'
+   )
+));
+
+/*******************************************************************************
+** Resort Hotel Acomodations
+** Conditional option for displaying the opening & closing season
+*******************************************************************************/
+
+piklist('field', array(
+   'type'    => 'group',
+   'label'   => _x('Hotel / Accomodation','Piklist metaboxes','roots'),
+   'field'   => 'resort_accomodation_group',
+   'fields'  => array(
+      array(
+         'type'      => 'text',
+         'field'     => 'five_stars',
+         'label'     => _x('5 Stars','Piklist metaboxes hotels','roots'),
+         'columns'   => 2,
+      ),
+      array(
+         'type'      => 'text',
+         'field'     => 'four_star',
+         'label'     => _x('4 Stars','Piklist metaboxes hotels','roots'),
+         'columns'   => 2,
+      ),
+      array(
+         'type'      => 'text',
+         'field'     => 'three_stars',
+         'label'     => _x('3 Stars','Piklist metaboxes hotels','roots'),
+         'columns'   => 2
+      ),
+      array(
+         'type'      => 'text',
+         'field'     => 'two_starts',
+         'label'     => _x('2 Stars','Piklist metaboxes hotels','roots'),
+         'columns'   => 2
+      ),
+      array(
+         'type'      => 'text',
+         'field'     => 'hostels',
+         'label'     => _x('Hostels','Piklist metaboxes hotels','roots'),
+         'columns'   => 2
+      ),
+      array(
+         'type'      => 'text',
+         'field'     => 'bed_breakfast',
+         'label'     => _x('B&B','Piklist metaboxes hotels','roots'),
+         'columns'   => 2
       )
-    )
-  )
+   )
+));
+
+/*******************************************************************************
+** Resort Altitude
+** Altitude of the highest mountain + altitude of the resort city
+*******************************************************************************/
+
+piklist('field', array(
+   'type'         => 'text',
+   'field'        => 'resort_altitude_highest_mountain',
+   'description'  => 'Altitude of highest mountain (in Meters)',
+   'label'        => __('Altitude Highest Mountain','roots'),
+   'columns'      => 6
 ));
 
 piklist('field', array(
-    'type' => 'group',
-    'label' => 'Slopes',
-    'fields' => array(
+   'type'         => 'text',
+   'field'        => 'resort_altitude_city',
+   'description'  => 'Altitude of resort city (in Meters)',
+   'label'        => __('Altitude Resort Location','roots'),
+   'columns'      => 6
+));
+
+/*******************************************************************************
+** Resort Image Gallery
+** Upload good quality photo for Slideshow
+*******************************************************************************/
+piklist('field', array(
+   'type'      => 'file',
+   'field'     => 'upload_photos',
+   'label'     => _x('Resort Photo Gallery','Pikilist metaboxes','roots'),
+   'options'   => array(
+      'modal_title' => __('Resort Photo Gallery','roots'),
+      'button' => __('Add Photo(s)','roots')
+   )
+));
+
+/*******************************************************************************
+** Resort Extra options
+** List of services & activies proposed by the resort
+*******************************************************************************/
+piklist('field', array(
+   'type'        => 'checkbox',
+   'field'       => 'resort_options',
+   'label'       => 'Options',
+   'description' => 'Select when true.',
+   'choices' => array(
+      '1'   => 'Parking',
+      '2'   => 'Babysitter',
+      '3'   => 'Discotheque/Club',
+      '4'   => 'Bars/pubs',
+      '5'   => 'Après-ski',
+      '6'   => 'Festival',
+      '7'   => 'Cinema',
+      '8'   => 'Spa',
+      '9'   => 'Family Discount',
+      '10'  => 'Indoor Swimming Pool',
+      '11'  => 'Freeride',
+      '12'  => 'Snow park',
+      '13'  => 'Ski school',
+      '14'  => 'Bus service in resort',
+      '15'  => 'Bus service to train station',
+      '16'  => 'Newsletter'
+   ),
+   'list'        => true,
+   'serialize'   => true,
+));
+
+
+/*******************************************************************************
+** Resort Slopes
+** Quantity & level of slopes proposed
+*******************************************************************************/
+piklist('field', array(
+   'type' => 'group',
+   'label' => 'Slopes',
+   'field' => 'resort_slope_group',
+   'fields' => array(
       array(
-          'type' => 'text',
-          'field' => 'black_slopes',
-          'label' => 'Black Slope',
-          'columns' => 3
+         'type' => 'text',
+         'field' => 'black_slopes',
+         'label' => 'Black Slope',
+         'columns' => 3
       ),
       array(
-          'type' => 'text',
-          'field' => 'red_slopes',
-          'label' => 'Red Slope',
-          'columns' => 3
+         'type' => 'text',
+         'field' => 'red_slopes',
+         'label' => 'Red Slope',
+         'columns' => 3
       ),
       array(
-          'type' => 'text',
-          'field' => 'blue_slopes',
-          'label' => 'Blue Slope',
-          'columns' => 3
+         'type' => 'text',
+         'field' => 'blue_slopes',
+         'label' => 'Blue Slope',
+         'columns' => 3
       ),
       array(
-        'type' => 'text',
-        'field' => 'Cross_country_skiing',
-        'label' => 'Cross-country',
-        'columns' => 3
+         'type' => 'text',
+         'field' => 'Cross_country_skiing',
+         'label' => 'Cross-country',
+         'columns' => 3
       )
-    )
-  )
-);
+   )
+));
 
-
-piklist('field', array(
-    'type' => 'group',
-    'label' => 'Price',
-    'fields' => array(
-      array(
-          'type' => 'text',
-          'field' => 'price_adult',
-          'label' => 'Price adult',
-          'columns' => 3
-      ),
-      array(
-          'type' => 'text',
-          'field' => 'Price_children',
-          'label' => 'Price children',
-          'columns' => 3
-      ),
-      array(
-          'type' => 'text',
-          'field' => 'Price_special',
-          'label' => 'Price others',
-          'columns' => 3
-      ),
-      array(
-          'type' => 'select',
-          'field' => 'price_currency',
-          'label' => 'Currency',
-          'columns' => 3,
-          'choices' => array(
-            '0' => 'Swiss Francs (CHF)',
-            '1' => 'Euros (EUR)'
-          )
-      )
-    )
-  )
-);
+/*******************************************************************************
+** Resort Prices as well as the default currency
+** Prices for adults, kids, seniors, groups, as well as the curreny
+*******************************************************************************/
 
 piklist('field', array(
- 'type' => 'text',
- 'field' => 'ski_area_map',
- 'label' => 'Ski area map',
- 'columns' => 12
- )
-);
+   'type' => 'text',
+   'field' => 'resort_price_adult',
+   'label' => _x('Adult Price','Piklist metaboxes','roots'),
+   'columns' => 6
+));
 
 piklist('field', array(
- 'type' => 'text',
- 'field' => 'ski_area_status',
- 'label' => 'Ski area status',
- 'columns' => 12
- )
-);
+   'type' => 'text',
+   'field' => 'resort_price_children',
+   'label' => _x('Children Price','Piklist metaboxes','roots'),
+   'columns' => 6
+));
 
 piklist('field', array(
- 'type' => 'text',
- 'field' => 'webcam',
- 'label' => 'webcam',
- 'columns' => 12
- )
-);
+   'type' => 'text',
+   'field' => 'resort_price_senior',
+   'label' => _x('Senior Price','Piklist metaboxes','roots'),
+   'columns' => 6
+));
 
-?>
+piklist('field', array(
+   'type' => 'text',
+   'field' => 'resort_price_groups',
+   'label' => _x('Group Price','Piklist metaboxes','roots'),
+   'columns' => 6
+));
+
+piklist('field', array(
+   'type' => 'select',
+   'field' => 'resort_price_currency',
+   'label' => 'Currency',
+   'columns' => 3,
+   'choices' => array(
+      'CHF' => 'CHF',
+      'EUR' => 'EUR',
+      'USD' => 'USD',
+      'GBP' => 'GBP',
+   )
+));
+
+/*******************************************************************************
+** Resort Weather status, maps & webcams
+** Prices for adults, kids, seniors, groups, as well as the curreny
+*******************************************************************************/
+
+piklist('field', array(
+   'type' => 'text',
+   'field' => 'ski_area_status',
+   'label' => 'Ski area status',
+   'columns' => 12
+));
+
+piklist('field', array(
+   'type' => 'text',
+   'field' => 'webcam',
+   'label' => 'webcam',
+   'columns' => 12
+));
+
+piklist('field', array(
+   'type' => 'text',
+   'field' => 'ski_area_map',
+   'label' => 'Ski area map',
+   'columns' => 12
+));
+
+piklist('field', array(
+   'type'      => 'file',
+   'field'     => 'resort_map',
+   'label'     => __('Map image','roots'),
+));

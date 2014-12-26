@@ -1,9 +1,9 @@
 === PIKLIST | Rapid development framework ===
 Contributors: piklist, p51labs, sbruner
 Tags: piklist, framework, cms, custom post types, post type, custom taxonomies, taxonomy, custom comment type, comments, settings, widgets
-Tested up to: 4.0
+Tested up to: 4.1
 Requires at least: 3.6
-Stable tag: 0.9.4.17
+Stable tag: 0.9.4.23
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -86,9 +86,35 @@ Piklist is the developers best friend. A rapid development framework for WordPre
 == Installation ==
 
 *   Install and activate Piklist like any other plugin.
-*   DEVELOPERS: <a href="http://piklist.com">Learn how to develop</a> Piklist Powered Themes and Plugins.
+*   DEVELOPERS: Learn how to develop Piklist Powered <a href="https://piklist.com/user-guide/tutorials/giving-your-theme-some-piklist-power/">Themes</a> and <a href="https://piklist.com/user-guide/tutorials/writing-a-plugin-for-piklist/">Plugins</a>.
 
 == Changelog ==
+
+= 0.9.4.24 =
+* ENHANCED: CSS updates
+
+= 0.9.4.23 =
+* FIXED: Non-image files can be removed from file upload field.
+* ENHANCED: Updates to group fields.
+
+= 0.9.4.22 =
+* FIXED: Workflows now work as expected.
+
+= 0.9.4.21 =
+* ENHANCED: Define your own CSS Classes for Widgets.
+* ENHANCED: Allow 'page' parameter to work on individual Workflow tabs.
+* FIXED: Dashboard widget now shows correct count for Media.
+* FIXED: Datepicker works as expected.
+
+= 0.9.4.20 =
+* ENHANCED: Admin notices can now dismiss.
+* FIXED: Notice on conditional scripts.
+
+= 0.9.4.19 =
+* ENHANCEMENT: File upload preview images look better.
+
+= 0.9.4.18 =
+* NEW: HTML 5 field support.
 
 = 0.9.4.17 =
 * FIXED: CSS Tweak for upload fields and WordPress 4.0.
